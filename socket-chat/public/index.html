@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO — чат</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <section id="login" class="login">
+    <form id="joinForm" class="panel">
+      <h1>Войти в чат</h1>
+      <label>Ваше имя<input id="name" maxlength="25" required placeholder="Например, Вася"></label>
+      <label>Цвет сообщений<input id="color" type="color" value="#8b5cf6"></label>
+      <p id="error" class="error"></p>
+      <button>Присоединиться</button>
+    </form>
+  </section>
+  <div class="layout">
+    <aside>
+      <h2>Socket Chat</h2>
+      <h3>Сейчас в чате: <span id="count">0</span></h3>
+      <ul id="users"></ul>
+    </aside>
+    <main>
+      <header><h1>Сообщения</h1><small>Общий чат и личные сообщения</small></header>
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <form id="sendForm" class="composer">
+        <select id="recipient" aria-label="Получатель"><option value="all">Всем</option></select>
+        <input id="message" placeholder="Введите сообщение..." maxlength="2000" autocomplete="off" required>
+        <button>Отправить</button>
+      </form>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
